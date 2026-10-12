@@ -1,0 +1,91 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#090a0d">
+<title>Katihar Checkmate | Rule Your City</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#090a0d;--panel:#121318;--gold:#d8b56a;--muted:#91919e;--white:#f7f3eb;--border:#282831}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--white);font-family:'DM Sans',sans-serif}
+header{height:76px;display:flex;align-items:center;justify-content:space-between;padding:0 7%;border-bottom:1px solid var(--border)}
+.logo{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:1.5px}
+.logo-icon{font-size:30px;color:var(--gold)}
+.logo span:last-child{color:var(--gold)}
+nav{display:flex;align-items:center;gap:28px}
+nav a{color:#c5c3cc;text-decoration:none;font-size:13px}
+.btn{background:var(--gold);color:#111!important;padding:12px 18px;border-radius:7px;font-weight:800;border:0;cursor:pointer}
+main{max-width:1180px;margin:auto;padding:65px 24px}
+.hero{display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:35px;min-height:430px}
+.eyebrow{font-size:11px;letter-spacing:3px;color:var(--gold);font-weight:800}
+h1{font-family:'Playfair Display',serif;font-size:clamp(48px,6vw,78px);line-height:1.04;letter-spacing:-2px;margin:23px 0}
+h1 em{font-style:normal;color:var(--gold)}
+.desc{color:#aaaab6;line-height:1.9;max-width:460px;font-size:15px}
+.actions{display:flex;gap:13px;margin-top:28px;flex-wrap:wrap}
+.secondary{border:1px solid #45434a;color:white;background:transparent;padding:12px 18px;border-radius:7px;cursor:pointer}
+.art{min-height:340px;border:1px solid #34302a;border-radius:20px;background:radial-gradient(ellipse at center,#33291a 0%,#17140f 38%,#101116 75%);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.art:before{content:"";position:absolute;width:270px;height:270px;border:1px solid #a9874c35;border-radius:50%;box-shadow:0 0 70px #d8b56a12}
+.knight{font-size:190px;line-height:1;color:var(--gold);text-shadow:0 10px 60px #d8b56a30;z-index:1}
+.art-label{position:absolute;bottom:22px;letter-spacing:4px;font-size:10px;color:#b8a176}
+.section-head{display:flex;align-items:end;justify-content:space-between;margin:65px 0 24px}
+h2{font-family:'Playfair Display',serif;font-size:31px;margin:8px 0}
+.muted{color:var(--muted);font-size:13px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}
+.card{background:var(--panel);border:1px solid var(--border);padding:24px;border-radius:13px;transition:.2s}
+.card:hover{border-color:#9b7b46;transform:translateY(-3px)}
+.icon{font-size:27px;margin-bottom:22px}
+.card h3{font-size:16px;margin:0 0 10px}
+.card p{color:var(--muted);font-size:13px;line-height:1.7;margin:0}
+.rank{display:flex;justify-content:space-between;align-items:center;padding:17px 0;border-bottom:1px solid var(--border)}
+.rank:last-child{border:0}
+.player{display:flex;gap:14px;align-items:center}
+.avatar{width:40px;height:40px;border-radius:10px;background:#24232a;display:grid;place-items:center;color:var(--gold);font-weight:800}
+.score{color:var(--gold);font-weight:800}
+.board{background:var(--panel);border:1px solid var(--border);border-radius:15px;padding:25px}
+footer{text-align:center;border-top:1px solid var(--border);padding:28px;color:#777783;font-size:12px;margin-top:70px}
+@media(max-width:760px){header{padding:0 20px;height:67px}nav a:not(.btn){display:none}nav{gap:10px}.hero{grid-template-columns:1fr;padding-top:15px;gap:28px}main{padding:35px 18px}.art{min-height:260px}.knight{font-size:150px}.cards{grid-template-columns:1fr}.section-head{margin-top:45px}h1{font-size:55px}.desc{font-size:14px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo"><span class="logo-icon">♞</span><div>KATIHAR<br><span>CHECKMATE</span></div></div>
+  <nav><a href="#features">Explore</a><a href="#rankings">Rankings</a><a href="#community">Community</a><a class="btn" href="#community">Join the club ↗</a></nav>
+</header>
+<main>
+  <section class="hero">
+    <div>
+      <div class="eyebrow">♟ THE CITY IS YOUR ARENA</div>
+      <h1>THINK.<br>PLAY.<br><em>CONQUER.</em></h1>
+      <p class="desc">Katihar's home for chess players. Find your rivals, sharpen your game, and build your legacy on the board.</p>
+      <div class="actions"><button class="btn" onclick="document.getElementById('community').scrollIntoView({behavior:'smooth'})">Enter the Arena ↗</button><button class="secondary" onclick="document.getElementById('features').scrollIntoView({behavior:'smooth'})">Discover the club ↓</button></div>
+    </div>
+    <div class="art"><div class="knight">♞</div><div class="art-label">YOUR CITY. YOUR LEGACY.</div></div>
+  </section>
+  <section id="features">
+    <div class="section-head"><div><div class="eyebrow">BUILT FOR COMPETITORS</div><h2>More than a game.</h2></div><div class="muted">01 / THE EXPERIENCE</div></div>
+    <div class="cards">
+      <article class="card"><div class="icon">♟</div><h3>Find Your Rival</h3><p>Connect with chess players across Katihar and arrange your next match.</p></article>
+      <article class="card"><div class="icon">♛</div><h3>Own the Rankings</h3><p>Track your rating, match results, winning streaks and city leaderboard position.</p></article>
+      <article class="card"><div class="icon">♜</div><h3>Enter Tournaments</h3><p>Discover local events, compete for the crown and make your name count.</p></article>
+    </div>
+  </section>
+  <section id="rankings">
+    <div class="section-head"><div><div class="eyebrow">THE ROAD TO NUMBER ONE</div><h2>City leaderboard.</h2></div><div class="muted">02 / THE RANKINGS</div></div>
+    <div class="board">
+      <div class="rank"><div class="player"><div class="avatar">01</div><div><strong>Champion awaits</strong><div class="muted">The throne is open</div></div></div><div class="score">— PTS</div></div>
+      <div class="rank"><div class="player"><div class="avatar">02</div><div><strong>Your name here</strong><div class="muted">Rise through the ranks</div></div></div><div class="score">— PTS</div></div>
+      <div class="rank"><div class="player"><div class="avatar">03</div><div><strong>Your next rival</strong><div class="muted">The battle starts here</div></div></div><div class="score">— PTS</div></div>
+      <p class="muted">Rankings will populate when real players and verified match results are connected.</p>
+    </div>
+  </section>
+  <section id="community">
+    <div class="section-head"><div><div class="eyebrow">YOUR MOVE STARTS HERE</div><h2>Join the movement.</h2></div></div>
+    <div class="card"><h3>Katihar's next chess champion could be you.</h3><p>We're building a community for players who want to meet, compete and improve.</p><div class="actions"><a class="btn" style="text-decoration:none;display:inline-block" href="https://github.com/" target="_blank" rel="noopener">Join the community ↗</a></div></div>
+  </section>
+</main>
+<footer>♞ KATIHAR CHECKMATE · BUILT FOR THE LOVE OF CHESS</footer>
+</body>
+</html>
