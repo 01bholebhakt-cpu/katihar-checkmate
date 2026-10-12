@@ -1,169 +1,376 @@
 
+import Link from "next/link";
 import {
-  ArrowUpRight,
-  Crown,
   Swords,
   Trophy,
   Users,
-  Zap,
-  ShieldCheck,
   CalendarDays,
   ChevronRight,
+  Zap,
+  Target,
+  Globe2,
+  Crown,
+  ArrowUpRight,
+  CircleUserRound,
+  BookOpen,
+  ShieldCheck,
 } from "lucide-react";
 
-const features = [
-  {
-    icon: Swords,
-    title: "Find Your Rival",
-    desc: "Discover local players, challenge opponents and bring the competition to the board.",
-    tag: "LOCAL MATCHES",
-  },
-  {
-    icon: Trophy,
-    title: "Own The Rankings",
-    desc: "Build your rating, track your wins and fight your way to the top of Katihar.",
-    tag: "CITY LEADERBOARD",
-  },
-  {
-    icon: CalendarDays,
-    title: "Tournament Arena",
-    desc: "Discover upcoming events, compete with the best and earn your place in history.",
-    tag: "REAL COMPETITION",
-  },
+const squares = [
+  "♜","♞","♝","♛","♚","♝","♞","♜",
+  "♟","♟","♟","♟","♟","♟","♟","♟",
+  "","","","","","","","",
+  "","","","","","","","",
+  "","","","","","","","",
+  "","","","","","","","",
+  "♙","♙","♙","♙","♙","♙","♙","♙",
+  "♖","♘","♗","♕","♔","♗","♘","♖",
+];
+
+const menu = [
+  { label: "Home", href: "/", icon: Globe2 },
+  { label: "Play chess", href: "/login", icon: Swords },
+  { label: "Puzzles & tactics", href: "/login", icon: Target },
+  { label: "Tournaments", href: "/tournaments", icon: Trophy },
+  { label: "Leaderboard", href: "/leaderboard", icon: Crown },
+  { label: "Community", href: "/profile", icon: Users },
 ];
 
 export default function Home() {
   return (
-    <main className="min-h-screen overflow-hidden bg-[#090a0d] text-[#f4f0e7]">
-      <header className="mx-auto flex max-w-7xl items-center justify-between border-b border-white/[0.08] px-5 py-5 md:px-10">
-        <a href="/" className="flex items-center gap-3">
-          <span className="grid h-11 w-11 place-items-center rounded-xl border border-[#d7b66c]/40 bg-[#d7b66c]/10 text-2xl text-[#d7b66c]">♞</span>
-          <span className="text-sm font-black tracking-[0.16em]">
-            KATIHAR <span className="text-[#d7b66c]">CHECKMATE</span>
-            <span className="mt-1 block text-[9px] font-medium tracking-[0.32em] text-white/40">THE CITY CHESS CLUB</span>
-          </span>
-        </a>
-        <nav className="hidden items-center gap-8 text-sm text-white/60 md:flex">
-          <a href="#features" className="hover:text-[#d7b66c]">Discover</a>
-          <a href="#community" className="hover:text-[#d7b66c]">Community</a>
-          <a href="#rankings" className="hover:text-[#d7b66c]">Rankings</a>
-        </nav>
-        <a href="#community" className="flex items-center gap-2 rounded-lg bg-[#d7b66c] px-4 py-3 text-xs font-bold text-black transition hover:bg-[#f0d18a]">
-          Join the club <ArrowUpRight size={15} />
-        </a>
-      </header>
+    <main className="min-h-screen bg-[#101512] text-[#f4f5f1]">
+      <div className="mx-auto flex min-h-screen max-w-[1600px]">
+        <aside className="sticky top-0 hidden h-screen w-[248px] shrink-0 flex-col border-r border-white/[0.07] bg-[#131a15] px-5 py-6 lg:flex">
+          <Link href="/" className="flex items-center gap-3 px-2">
+            <span className="grid h-11 w-11 place-items-center rounded-xl bg-[#81b64c] text-3xl font-bold text-[#10200e]">
+              ♞
+            </span>
+            <span>
+              <span className="block text-sm font-black tracking-tight">
+                KATIHAR
+              </span>
+              <span className="block text-xs font-bold tracking-[0.13em] text-[#81b64c]">
+                CHECKMATE
+              </span>
+            </span>
+          </Link>
 
-      <section className="relative mx-auto grid max-w-7xl items-center gap-12 px-5 py-20 md:grid-cols-2 md:px-10 md:py-28">
-        <div className="pointer-events-none absolute left-0 top-20 h-80 w-80 rounded-full bg-[#d7b66c]/[0.06] blur-[100px]" />
-        <div className="relative z-10">
-          <div className="inline-flex items-center gap-2 rounded-full border border-[#d7b66c]/25 bg-[#d7b66c]/[0.06] px-4 py-2 text-[10px] font-bold tracking-[0.22em] text-[#d7b66c]">
-            <span className="h-1.5 w-1.5 rounded-full bg-[#d7b66c]" />
-            BUILT FOR KATIHAR
-          </div>
-          <h1 className="mt-8 font-serif text-6xl font-bold leading-[0.98] tracking-[-0.055em] md:text-8xl">
-            Think.
-            <br />
-            Play.
-            <br />
-            <span className="text-[#d7b66c]">Conquer.</span>
-          </h1>
-          <p className="mt-7 max-w-md text-base leading-8 text-white/50">
-            A new home for Katihar&apos;s chess community. Find your rivals,
-            enter tournaments and build your legacy — one move at a time.
+          <Link
+            href="/login"
+            className="mt-9 flex items-center justify-center gap-2 rounded-xl bg-[#81b64c] px-4 py-3.5 text-sm font-extrabold text-[#14200e] transition hover:bg-[#96ca61]"
+          >
+            <Swords size={17} /> Play chess
+          </Link>
+
+          <p className="mb-3 mt-9 px-3 text-[10px] font-bold uppercase tracking-[0.18em] text-white/35">
+            Explore
           </p>
-          <div className="mt-9 flex flex-wrap gap-3">
-            <a href="#features" className="inline-flex items-center gap-3 rounded-lg bg-[#d7b66c] px-6 py-4 text-sm font-bold text-black transition hover:bg-[#f0d18a]">
-              Explore the arena <ArrowUpRight size={17} />
-            </a>
-            <a href="#community" className="rounded-lg border border-white/15 px-6 py-4 text-sm font-semibold text-white/80 transition hover:border-[#d7b66c]/60">
-              Meet the community
-            </a>
-          </div>
-          <div className="mt-12 flex flex-wrap gap-8 border-t border-white/10 pt-7">
-            <div><p className="text-xl font-bold">01</p><p className="mt-1 text-[10px] tracking-widest text-white/40">YOUR CITY</p></div>
-            <div><p className="text-xl font-bold">∞</p><p className="mt-1 text-[10px] tracking-widest text-white/40">POSSIBILITIES</p></div>
-            <div><p className="text-xl font-bold text-[#d7b66c]">♞</p><p className="mt-1 text-[10px] tracking-widest text-white/40">YOUR LEGACY</p></div>
-          </div>
-        </div>
 
-        <div className="relative mx-auto w-full max-w-lg">
-          <div className="absolute inset-8 rounded-full bg-[#d7b66c]/10 blur-[80px]" />
-          <div className="relative rounded-3xl border border-[#d7b66c]/20 bg-gradient-to-br from-[#211d15] via-[#121217] to-[#0d0e12] p-5 shadow-2xl shadow-black/40 md:p-8">
-            <div className="mb-5 flex items-center justify-between">
-              <div><p className="text-[10px] tracking-[0.25em] text-[#d7b66c]">THE ROYAL GAME</p><p className="mt-1 text-sm font-semibold">Your next move awaits.</p></div>
-              <Crown className="text-[#d7b66c]" size={25} />
+          <nav className="space-y-1">
+            {menu.map(({ label, href, icon: Icon }, index) => (
+              <Link
+                key={label}
+                href={href}
+                className={`flex items-center gap-3 rounded-xl px-3 py-3 text-sm font-medium transition ${
+                  index === 0
+                    ? "bg-white/[0.07] text-white"
+                    : "text-white/60 hover:bg-white/[0.05] hover:text-white"
+                }`}
+              >
+                <Icon size={19} className={index === 0 ? "text-[#81b64c]" : ""} />
+                {label}
+                {label === "Tournaments" && (
+                  <span className="ml-auto rounded-md bg-[#81b64c]/15 px-1.5 py-1 text-[9px] font-bold text-[#a6d77c]">
+                    LOCAL
+                  </span>
+                )}
+              </Link>
+            ))}
+          </nav>
+
+          <div className="mt-auto rounded-2xl border border-white/[0.08] bg-[#1b241d] p-4">
+            <div className="flex items-center gap-2 text-[#a8d880]">
+              <ShieldCheck size={17} />
+              <span className="text-xs font-bold">Built for Katihar</span>
             </div>
-            <div className="mx-auto grid aspect-square w-full max-w-[390px] grid-cols-8 overflow-hidden rounded-lg border border-[#d7b66c]/30">
-              {Array.from({ length: 64 }, (_, i) => {
-                const row = Math.floor(i / 8);
-                const col = i % 8;
-                const light = (row + col) % 2 === 0;
-                const pieces: Record<number, string> = {
-                  0:"♜",1:"♞",2:"♝",3:"♛",4:"♚",5:"♝",6:"♞",7:"♜",
-                  8:"♟",9:"♟",10:"♟",11:"♟",12:"♟",13:"♟",14:"♟",15:"♟",
-                  48:"♙",49:"♙",50:"♙",51:"♙",52:"♙",53:"♙",54:"♙",55:"♙",
-                  56:"♖",57:"♘",58:"♗",59:"♕",60:"♔",61:"♗",62:"♘",63:"♖"
-                };
-                return (
-                  <div key={i} className={`flex aspect-square items-center justify-center ${light ? "bg-[#d9c8a4]" : "bg-[#65513b]"}`}>
-                    <span className={`select-none text-[clamp(16px,3.3vw,32px)] leading-none ${row < 2 ? "text-[#17151a]" : "text-[#fff8e8] drop-shadow-[0_2px_1px_#352718]"}`}>
-                      {pieces[i] || ""}
-                    </span>
+            <p className="mt-2 text-xs leading-5 text-white/45">
+              Your city. Your opponents. Your chess community.
+            </p>
+            <Link
+              href="/profile"
+              className="mt-4 flex items-center justify-between text-xs font-bold text-white/75 hover:text-[#a8d880]"
+            >
+              Your player profile <ArrowUpRight size={15} />
+            </Link>
+          </div>
+        </aside>
+
+        <div className="min-w-0 flex-1">
+          <header className="sticky top-0 z-20 flex items-center justify-between border-b border-white/[0.07] bg-[#101512]/95 px-4 py-3 backdrop-blur-xl sm:px-7 lg:px-9">
+            <Link href="/" className="flex items-center gap-2 lg:hidden">
+              <span className="text-2xl text-[#81b64c]">♞</span>
+              <span className="text-xs font-black tracking-wide">
+                KATIHAR <span className="text-[#81b64c]">CHECKMATE</span>
+              </span>
+            </Link>
+
+            <div className="hidden items-center gap-2 text-xs text-white/40 sm:flex">
+              <span className="h-2 w-2 rounded-full bg-[#81b64c]" />
+              YOUR LOCAL CHESS HUB
+            </div>
+
+            <div className="flex items-center gap-2">
+              <Link
+                href="/login"
+                className="rounded-lg px-3 py-2 text-xs font-bold text-white/70 hover:bg-white/[0.06] hover:text-white sm:px-4 sm:text-sm"
+              >
+                Log in
+              </Link>
+              <Link
+                href="/login"
+                className="rounded-lg bg-[#81b64c] px-3 py-2.5 text-xs font-extrabold text-[#14200e] hover:bg-[#96ca61] sm:px-5 sm:text-sm"
+              >
+                Sign up free
+              </Link>
+            </div>
+          </header>
+
+          <div className="grid gap-7 p-4 sm:p-7 lg:grid-cols-[minmax(0,1fr)_minmax(270px,350px)] lg:gap-8 lg:p-9">
+            <section className="min-w-0">
+              <div className="mb-5 flex flex-wrap items-center gap-2 text-xs text-white/40">
+                <span className="text-[#a5d77a]">Home</span>
+                <ChevronRight size={13} />
+                <span>Katihar Chess Club</span>
+              </div>
+
+              <div className="relative overflow-hidden rounded-2xl border border-white/[0.07] bg-[#1b241d] p-6 sm:p-9">
+                <div className="pointer-events-none absolute -right-20 -top-24 h-72 w-72 rounded-full bg-[#81b64c]/10 blur-[80px]" />
+
+                <div className="relative">
+                  <span className="inline-flex items-center gap-2 rounded-full border border-[#81b64c]/25 bg-[#81b64c]/10 px-3 py-1.5 text-[10px] font-extrabold uppercase tracking-[0.13em] text-[#a5d77a]">
+                    <Zap size={13} /> The game starts here
+                  </span>
+
+                  <h1 className="mt-5 max-w-xl text-4xl font-black leading-[1.07] tracking-tight sm:text-6xl">
+                    Make your
+                    <br />
+                    <span className="text-[#91c65d]">next move.</span>
+                  </h1>
+
+                  <p className="mt-4 max-w-md text-sm leading-6 text-white/55 sm:text-base sm:leading-7">
+                    Play, compete and connect with chess players from Katihar.
+                    Your local chess community starts here.
+                  </p>
+
+                  <div className="mt-7 flex flex-wrap gap-3">
+                    <Link
+                      href="/login"
+                      className="inline-flex items-center gap-2 rounded-xl bg-[#81b64c] px-5 py-3.5 text-sm font-extrabold text-[#14200e] transition hover:bg-[#a0d66c]"
+                    >
+                      <Swords size={17} /> Get started
+                    </Link>
+                    <Link
+                      href="/tournaments"
+                      className="inline-flex items-center gap-2 rounded-xl border border-white/15 bg-white/[0.03] px-5 py-3.5 text-sm font-bold text-white/85 transition hover:border-white/30 hover:bg-white/[0.07]"
+                    >
+                      <Trophy size={17} /> Tournaments
+                    </Link>
                   </div>
-                );
-              })}
-            </div>
-            <div className="mt-5 flex items-center justify-between rounded-xl border border-white/[0.08] bg-black/20 p-4">
-              <div className="flex items-center gap-3"><span className="grid h-9 w-9 place-items-center rounded-lg bg-[#d7b66c]/10 text-[#d7b66c]"><Zap size={18}/></span><div><p className="text-xs font-semibold">Your journey starts here</p><p className="mt-1 text-[10px] text-white/40">A city united by chess</p></div></div>
-              <ChevronRight className="text-[#d7b66c]" size={18}/>
-            </div>
+                </div>
+              </div>
+
+              <div className="mt-8 flex items-center justify-between gap-3">
+                <div>
+                  <h2 className="text-lg font-extrabold sm:text-xl">
+                    Jump into chess
+                  </h2>
+                  <p className="mt-1 text-xs text-white/40 sm:text-sm">
+                    Choose your next destination.
+                  </p>
+                </div>
+                <BookOpen size={21} className="text-[#81b64c]" />
+              </div>
+
+              <div className="mt-4 grid gap-3 sm:grid-cols-2">
+                <Link
+                  href="/login"
+                  className="group rounded-2xl border border-white/[0.08] bg-[#171e19] p-5 transition hover:border-[#81b64c]/50 hover:bg-[#1b261d]"
+                >
+                  <span className="grid h-11 w-11 place-items-center rounded-xl bg-[#81b64c]/15 text-[#9dd46d]">
+                    <Swords size={22} />
+                  </span>
+                  <div className="mt-5 flex items-center justify-between gap-2">
+                    <h3 className="font-extrabold">Play chess</h3>
+                    <ArrowUpRight size={17} className="text-white/30 transition group-hover:text-[#a5d77a]" />
+                  </div>
+                  <p className="mt-2 text-xs leading-5 text-white/45">
+                    Join the platform and get your player profile.
+                  </p>
+                </Link>
+
+                <Link
+                  href="/leaderboard"
+                  className="group rounded-2xl border border-white/[0.08] bg-[#171e19] p-5 transition hover:border-[#81b64c]/50 hover:bg-[#1b261d]"
+                >
+                  <span className="grid h-11 w-11 place-items-center rounded-xl bg-[#e6bd59]/10 text-[#e6bd59]">
+                    <Trophy size={22} />
+                  </span>
+                  <div className="mt-5 flex items-center justify-between gap-2">
+                    <h3 className="font-extrabold">Leaderboard</h3>
+                    <ArrowUpRight size={17} className="text-white/30 transition group-hover:text-[#a5d77a]" />
+                  </div>
+                  <p className="mt-2 text-xs leading-5 text-white/45">
+                    See player ratings and climb the local rankings.
+                  </p>
+                </Link>
+
+                <Link
+                  href="/tournaments"
+                  className="group rounded-2xl border border-white/[0.08] bg-[#171e19] p-5 transition hover:border-[#81b64c]/50 hover:bg-[#1b261d]"
+                >
+                  <span className="grid h-11 w-11 place-items-center rounded-xl bg-[#74c4d8]/10 text-[#74c4d8]">
+                    <CalendarDays size={22} />
+                  </span>
+                  <div className="mt-5 flex items-center justify-between gap-2">
+                    <h3 className="font-extrabold">Tournaments</h3>
+                    <ArrowUpRight size={17} className="text-white/30 transition group-hover:text-[#a5d77a]" />
+                  </div>
+                  <p className="mt-2 text-xs leading-5 text-white/45">
+                    Find upcoming chess events in your city.
+                  </p>
+                </Link>
+
+                <Link
+                  href="/profile"
+                  className="group rounded-2xl border border-white/[0.08] bg-[#171e19] p-5 transition hover:border-[#81b64c]/50 hover:bg-[#1b261d]"
+                >
+                  <span className="grid h-11 w-11 place-items-center rounded-xl bg-[#bd91ed]/10 text-[#bd91ed]">
+                    <CircleUserRound size={22} />
+                  </span>
+                  <div className="mt-5 flex items-center justify-between gap-2">
+                    <h3 className="font-extrabold">Your profile</h3>
+                    <ArrowUpRight size={17} className="text-white/30 transition group-hover:text-[#a5d77a]" />
+                  </div>
+                  <p className="mt-2 text-xs leading-5 text-white/45">
+                    Track your player stats and progress.
+                  </p>
+                </Link>
+              </div>
+
+              <div className="mt-8 rounded-2xl border border-white/[0.07] bg-[#171e19] p-5 sm:p-6">
+                <div className="flex items-start gap-4">
+                  <div className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-[#81b64c]/10 text-[#91c65d]">
+                    <Users size={22} />
+                  </div>
+                  <div className="flex-1">
+                    <h2 className="font-extrabold">Built for Katihar.</h2>
+                    <p className="mt-2 text-sm leading-6 text-white/45">
+                      A place for local players to discover events, meet
+                      opponents and grow chess across the city.
+                    </p>
+                    <Link
+                      href="/tournaments"
+                      className="mt-4 inline-flex items-center gap-1 text-xs font-extrabold text-[#a5d77a] hover:text-white"
+                    >
+                      Explore the community <ChevronRight size={15} />
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <aside className="min-w-0">
+              <div className="overflow-hidden rounded-2xl border border-white/[0.08] bg-[#171e19]">
+                <div className="flex items-center justify-between border-b border-white/[0.07] px-4 py-4">
+                  <div>
+                    <h2 className="text-sm font-extrabold">The chessboard</h2>
+                    <p className="mt-1 text-[10px] text-white/40">
+                      Your next challenge awaits
+                    </p>
+                  </div>
+                  <span className="rounded-lg bg-[#81b64c]/10 px-2.5 py-1.5 text-[10px] font-bold text-[#a5d77a]">
+                    ♟ CLASSIC
+                  </span>
+                </div>
+
+                <div className="p-3 sm:p-4">
+                  <div className="grid grid-cols-8 overflow-hidden rounded-lg border border-black/30">
+                    {squares.map((piece, i) => {
+                      const row = Math.floor(i / 8);
+                      const col = i % 8;
+                      const light = (row + col) % 2 === 0;
+                      const darkPiece = row < 2;
+
+                      return (
+                        <div
+                          key={i}
+                          className={`flex aspect-square items-center justify-center ${
+                            light ? "bg-[#ebecd0]" : "bg-[#779556]"
+                          }`}
+                        >
+                          <span
+                            className={`select-none text-[clamp(17px,3.5vw,34px)] leading-none sm:text-[clamp(20px,2.5vw,36px)] ${
+                              darkPiece
+                                ? "text-[#252a25]"
+                                : "text-white drop-shadow-[0_2px_1px_#34452a]"
+                            }`}
+                          >
+                            {piece}
+                          </span>
+                        </div>
+                      );
+                    })}
+                  </div>
+
+                  <div className="mt-3 flex items-center justify-between px-1 text-[10px] text-white/35">
+                    <span>♟ White vs Black</span>
+                    <span>Classic chess</span>
+                  </div>
+
+                  <Link
+                    href="/login"
+                    className="mt-4 flex w-full items-center justify-center gap-2 rounded-xl bg-[#81b64c] px-4 py-3.5 text-sm font-extrabold text-[#14200e] transition hover:bg-[#a0d66c]"
+                  >
+                    Start your journey <ArrowUpRight size={16} />
+                  </Link>
+                </div>
+              </div>
+
+              <div className="mt-4 rounded-2xl border border-white/[0.08] bg-[#171e19] p-5">
+                <div className="flex items-center gap-3">
+                  <div className="grid h-10 w-10 place-items-center rounded-xl bg-[#e6bd59]/10 text-[#e6bd59]">
+                    <Crown size={21} />
+                  </div>
+                  <div>
+                    <h3 className="text-sm font-extrabold">Claim your place.</h3>
+                    <p className="mt-1 text-[11px] text-white/40">
+                      Every strong player starts somewhere.
+                    </p>
+                  </div>
+                </div>
+                <Link
+                  href="/leaderboard"
+                  className="mt-5 flex items-center justify-between rounded-lg border border-white/10 px-3 py-3 text-xs font-bold text-white/75 transition hover:border-[#81b64c]/40 hover:text-[#a5d77a]"
+                >
+                  View city rankings <ChevronRight size={16} />
+                </Link>
+              </div>
+
+              <div className="mt-4 flex items-start gap-3 px-2 py-3 text-[11px] leading-5 text-white/35">
+                <ShieldCheck size={16} className="mt-0.5 shrink-0 text-[#81b64c]" />
+                <p>
+                  Made for fair play, friendly competition and the growing
+                  chess community of Katihar, Bihar.
+                </p>
+              </div>
+            </aside>
           </div>
-          <div className="absolute -right-3 top-1/3 hidden rounded-xl border border-[#d7b66c]/25 bg-[#15151a] p-4 shadow-xl sm:block">
-            <Trophy className="mb-2 text-[#d7b66c]" size={21}/>
-            <p className="text-xs font-bold">Rise to the top.</p>
-            <p className="mt-1 text-[10px] text-white/40">Your city. Your game.</p>
-          </div>
-        </div>
-      </section>
 
-      <section id="features" className="mx-auto max-w-7xl px-5 py-16 md:px-10 md:py-24">
-        <div className="mb-10 flex flex-wrap items-end justify-between gap-4">
-          <div><p className="text-[10px] font-bold tracking-[0.25em] text-[#d7b66c]">THE EXPERIENCE</p><h2 className="mt-3 text-3xl font-bold tracking-tight md:text-5xl">Built for the ambitious.</h2></div>
-          <p className="max-w-xs text-sm leading-6 text-white/40">Not just a chessboard. A place to compete, connect and grow.</p>
+          <footer className="border-t border-white/[0.07] px-5 py-5 text-center text-[10px] text-white/30 sm:px-8">
+            KATIHAR CHECKMATE · THINK. PLAY. IMPROVE.
+          </footer>
         </div>
-        <div className="grid gap-4 md:grid-cols-3">
-          {features.map(({icon: Icon,title,desc,tag},i)=>(
-            <article key={title} className="group rounded-2xl border border-white/[0.08] bg-[#111217] p-7 transition duration-300 hover:-translate-y-1 hover:border-[#d7b66c]/40">
-              <div className="mb-10 flex items-center justify-between"><span className="grid h-12 w-12 place-items-center rounded-xl border border-[#d7b66c]/20 bg-[#d7b66c]/[0.07] text-[#d7b66c]"><Icon size={22}/></span><span className="text-xs text-white/25">0{i+1}</span></div>
-              <p className="text-[9px] font-bold tracking-[0.2em] text-[#d7b66c]">{tag}</p>
-              <h3 className="mt-3 text-xl font-bold">{title}</h3>
-              <p className="mt-3 text-sm leading-7 text-white/45">{desc}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section id="rankings" className="mx-auto max-w-7xl px-5 py-12 md:px-10">
-        <div className="rounded-3xl border border-[#d7b66c]/20 bg-gradient-to-r from-[#1a1711] to-[#111217] p-8 md:p-12">
-          <div className="flex flex-col justify-between gap-6 md:flex-row md:items-center">
-            <div><p className="text-[10px] font-bold tracking-[0.25em] text-[#d7b66c]">THE ROAD TO NUMBER ONE</p><h2 className="mt-3 text-3xl font-bold md:text-4xl">Katihar&apos;s throne is waiting.</h2><p className="mt-3 max-w-xl text-sm leading-7 text-white/45">Verified player rankings will take shape as the community joins and matches are recorded.</p></div>
-            <div className="flex h-20 w-20 shrink-0 items-center justify-center rounded-2xl border border-[#d7b66c]/30 bg-[#d7b66c]/10"><Trophy size={38} className="text-[#d7b66c]"/></div>
-          </div>
-        </div>
-      </section>
-
-      <section id="community" className="mx-auto max-w-7xl px-5 py-20 text-center md:px-10 md:py-28">
-        <Users className="mx-auto text-[#d7b66c]" size={34}/>
-        <p className="mt-6 text-[10px] font-bold tracking-[0.25em] text-[#d7b66c]">YOUR CITY. YOUR COMMUNITY.</p>
-        <h2 className="mx-auto mt-4 max-w-3xl text-4xl font-bold tracking-tight md:text-6xl">Every legend begins with a move.</h2>
-        <p className="mx-auto mt-5 max-w-lg text-sm leading-7 text-white/45">Katihar&apos;s chess community is taking shape. Come be part of the beginning.</p>
-        <a href="#features" className="mt-8 inline-flex items-center gap-3 rounded-lg bg-[#d7b66c] px-7 py-4 text-sm font-bold text-black transition hover:bg-[#f0d18a]">Explore the platform <ArrowUpRight size={17}/></a>
-        <div className="mt-10 flex items-center justify-center gap-2 text-xs text-white/35"><ShieldCheck size={15}/> Built around fair play and community.</div>
-      </section>
-
-      <footer className="border-t border-white/[0.08] px-5 py-8 text-center text-xs text-white/30">
-        <span className="text-[#d7b66c]">♞ KATIHAR CHECKMATE</span> · THINK. PLAY. CONQUER.
-      </footer>
+      </div>
     </main>
   );
 }
